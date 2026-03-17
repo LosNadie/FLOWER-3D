@@ -1,0 +1,92 @@
+* {
+  box-sizing: border-box;
+}
+
+html,
+body {
+  margin: 0;
+  width: 100%;
+  height: 100%;
+}
+
+body {
+  overflow: hidden;
+  background:
+    radial-gradient(circle at 15% 20%, #ffd2ea 0%, #ffd2ea 18%, rgba(255, 210, 234, 0) 46%),
+    radial-gradient(circle at 80% 25%, #ffb6dc 0%, #ffb6dc 16%, rgba(255, 182, 220, 0) 48%),
+    linear-gradient(135deg, #ff8bc7 0%, #ff71b1 45%, #ff9ed0 100%);
+  font-family: "Segoe UI", "PingFang SC", "Microsoft YaHei", sans-serif;
+  position: relative;
+}
+
+#webgl-container {
+  position: fixed;
+  inset: 0;
+}
+
+body::before {
+  content: "";
+  position: fixed;
+  inset: -20%;
+  background:
+    radial-gradient(circle at 18% 30%, rgba(255, 255, 255, 0.34) 0%, rgba(255, 255, 255, 0) 42%),
+    radial-gradient(circle at 78% 40%, rgba(255, 166, 227, 0.38) 0%, rgba(255, 166, 227, 0) 48%),
+    radial-gradient(circle at 48% 82%, rgba(255, 128, 192, 0.32) 0%, rgba(255, 128, 192, 0) 54%);
+  animation: pinkFlow 10s ease-in-out infinite alternate;
+  pointer-events: none;
+}
+
+body::after {
+  content: "";
+  position: fixed;
+  inset: -12%;
+  background:
+    conic-gradient(
+      from 180deg at 50% 50%,
+      rgba(255, 255, 255, 0.08) 0deg,
+      rgba(255, 184, 230, 0.16) 120deg,
+      rgba(255, 134, 203, 0.12) 240deg,
+      rgba(255, 255, 255, 0.08) 360deg
+    );
+  mix-blend-mode: soft-light;
+  animation: silkGlow 14s linear infinite;
+  pointer-events: none;
+}
+
+.title {
+  position: fixed;
+  top: 18px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 5;
+  font-size: clamp(38px, 7.5vw, 82px);
+  line-height: 1;
+  letter-spacing: 0.12em;
+  color: rgba(255, 255, 255, 0.9);
+  text-shadow: 0 0 14px rgba(255, 255, 255, 0.45), 0 0 26px rgba(171, 79, 255, 0.38);
+  font-family: "Brush Script MT", "Segoe Script", "Lucida Handwriting", cursive;
+  user-select: none;
+  pointer-events: none;
+}
+
+@keyframes pinkFlow {
+  0% {
+    transform: translate3d(-2%, -1%, 0) scale(1);
+    filter: hue-rotate(0deg) saturate(112%);
+  }
+  100% {
+    transform: translate3d(2%, 1%, 0) scale(1.06);
+    filter: hue-rotate(15deg) saturate(125%);
+  }
+}
+
+@keyframes silkGlow {
+  0% {
+    transform: rotate(0deg) scale(1);
+    opacity: 0.55;
+  }
+  100% {
+    transform: rotate(360deg) scale(1.04);
+    opacity: 0.85;
+  }
+}
